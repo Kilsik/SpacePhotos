@@ -19,12 +19,16 @@ def schedule():
         'photo_folder',
         help='Folder with photos'
         )
+    parser.add_argument(
+        '-timer',
+        type=int,
+        default=14400,
+        help='Timer, sec.')
     args = parser.parse_args()
     load_dotenv()
     list_text = list(os.walk(args.text_folder))[0][2]
     list_photo = list(os.walk(args.photo_folder))[0][2]
     photo = 'images/nasa_apod1.jpg'
-    timer = int(os.environ["TIMER"])
     while True:
         for photo in list_photo:
             publish_photo(os.path.join(args.photo_folder,photo))
