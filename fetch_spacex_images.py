@@ -27,9 +27,6 @@ def fetch_spacex_last_launch():
             print('There are not images on latest launch')
 
 
-
-
-
 def main():
     fetch_spacex_last_launch()
 

@@ -1,6 +1,5 @@
 import requests
 import argparse
-import os
 import datetime
 
 from dotenv import load_dotenv
@@ -11,7 +10,10 @@ def fetch_nasa_epic():
     parser = argparse.ArgumentParser(
         description='Downloads NASA EPIC photos'
         )
-    parser.add_argument('folder', type=str, help='Output dir for image')
+    parser.add_argument('folder',
+        type=str,
+        help='Output dir for image'
+        )
     parser.add_argument(
         '-date',
         help='''Images for this date format YYYY-MM-DD
