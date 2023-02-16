@@ -1,6 +1,7 @@
 import requests
 import argparse
 import datetime
+import os
 
 from dotenv import load_dotenv
 from shared import get_image

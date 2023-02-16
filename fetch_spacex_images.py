@@ -5,8 +5,14 @@ from shared import get_image
 
 def fetch_spacex_last_launch():
     parser = argparse.ArgumentParser(description='Downloads SpaceX photos')
-    parser.add_argument('folder', type=str, help='Output dir for image')
-    parser.add_argument('-lid', type=str, help='Launch id')
+    parser.add_argument('folder',
+        type=str,
+        help='Output dir for image'
+        )
+    parser.add_argument('-lid',
+        type=str,
+        help='Launch id'
+        )
     args = parser.parse_args()
     if args.lid:
         launch_id = args.lid
