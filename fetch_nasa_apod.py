@@ -20,7 +20,6 @@ def fetch_nasa_apod():
                         help='Count randomly chosen images (default 10)'
                         )
     args = parser.parse_args()
-    load_dotenv()
     nasa_key = os.environ["NASA_API_KEY"]
     nasa_params = {"api_key": nasa_key,
                    "count": args.count
@@ -39,6 +38,7 @@ def fetch_nasa_apod():
 
 
 def main():
+    load_dotenv()
     fetch_nasa_apod()
 
 

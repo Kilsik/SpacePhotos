@@ -23,7 +23,6 @@ def files_ext(pic_url):
 
 
 def publish_photo(photo):
-    load_dotenv()
     bot_token = os.environ["BOT_TOKEN"]
     space_bot = telegram.Bot(token=bot_token)
     chat_id = os.environ["CHANEL_ID"]

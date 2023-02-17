@@ -22,7 +22,6 @@ def fetch_nasa_epic():
         or most recent images (if absent)'''
         )
     args = parser.parse_args()
-    load_dotenv()
     nasa_key = os.environ["NASA_API_KEY"]
     epic_param = {"api_key": nasa_key}
     epic_url = 'https://api.nasa.gov/EPIC/api/natural'
@@ -45,6 +44,7 @@ def fetch_nasa_epic():
 
 
 def main():
+    load_dotenv()
     fetch_nasa_epic()
 
 

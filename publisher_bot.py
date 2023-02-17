@@ -8,7 +8,6 @@ from shared import publish_photo
 
 
 def scheduled_publishing():
-    load_dotenv()
     parser = argparse.ArgumentParser(
         description='Publish docs from folders according to the schedule'
         )
@@ -32,6 +31,7 @@ def scheduled_publishing():
 
 
 def main():
+    load_dotenv()
     scheduled_publishing()
 
 
