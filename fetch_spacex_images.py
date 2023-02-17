@@ -25,8 +25,8 @@ def fetch_spacex_last_launch():
     launch_response = requests.get(launch_url)
     launch_response.raise_for_status()
     if launch_response.json()['links']['flickr']['original']:
-        link_list = launch_response.json()['links']['flickr']['original']
-        for link_number, link in enumerate(link_list):
+        link_roster = launch_response.json()['links']['flickr']['original']
+        for link_number, link in enumerate(link_roster):
             path = f'{args.folder}/SpaceX{link_number}.jpg'
             get_image(link, path)
     else:
