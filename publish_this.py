@@ -4,6 +4,7 @@ import os
 
 from shared import publish_photo
 
+
 def publish_this():
     parser = argparse.ArgumentParser(
         description='Publishes the specified photo to the channel'
@@ -18,9 +19,9 @@ def publish_this():
     publish_photo(photo)
 
 
-
 def main():
     publish_this()
+
 
 if __name__ == '__main__':
     main()
