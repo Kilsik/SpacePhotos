@@ -11,7 +11,8 @@ def fetch_nasa_epic():
     parser = argparse.ArgumentParser(
         description='Downloads NASA EPIC photos'
         )
-    parser.add_argument('folder',
+    parser.add_argument(
+        'folder',
         type=str,
         help='Output dir for image'
         )
@@ -29,7 +30,7 @@ def fetch_nasa_epic():
         full_url = f'{epic_url}/date/{args.date}'
     else:
         full_url = f'{epic_url}/images'
-    response = requests.get(epic_url, params=epic_param)
+    response = requests.get(full_url, params=epic_param)
     response.raise_for_status()
     pic_list = response.json()
     for pic in enumerate(pic_list):
@@ -45,6 +46,7 @@ def fetch_nasa_epic():
 
 def main():
     fetch_nasa_epic()
+
 
 if __name__ == '__main__':
     main()
