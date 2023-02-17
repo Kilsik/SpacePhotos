@@ -3,13 +3,16 @@ import argparse
 
 from shared import get_image
 
+
 def fetch_spacex_last_launch():
     parser = argparse.ArgumentParser(description='Downloads SpaceX photos')
-    parser.add_argument('folder',
+    parser.add_argument(
+        'folder',
         type=str,
         help='Output dir for image'
         )
-    parser.add_argument('-lid',
+    parser.add_argument(
+        '-lid',
         type=str,
         help='Launch id'
         )
