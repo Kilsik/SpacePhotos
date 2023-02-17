@@ -20,7 +20,6 @@ def publish_this():
 
 
 def main():
-    load_dotenv()
     publish_this()
 
 
