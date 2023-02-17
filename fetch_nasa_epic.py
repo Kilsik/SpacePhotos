@@ -32,8 +32,8 @@ def fetch_nasa_epic():
         full_url = f'{epic_url}/images'
     response = requests.get(full_url, params=epic_param)
     response.raise_for_status()
-    pic_list = response.json()
-    for pic in enumerate(pic_list):
+    pic_roster = response.json()
+    for pic in enumerate(pic_roster):
         nasa_url = 'https://epic.gsfc.nasa.gov/archive/natural'
         date = str(datetime.datetime.fromisoformat(pic[1]["date"])).split()
         split_date = date[0].split('-')
