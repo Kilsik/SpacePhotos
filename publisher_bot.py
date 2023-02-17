@@ -26,13 +26,14 @@ def scheduled_publishing():
     timer = args.timer
     while True:
         for photo in list_photo:
-            publish_photo(os.path.join(args.photo_folder,photo))
+            publish_photo(os.path.join(args.photo_folder, photo))
             sleep(timer)
         random.shuffle(list_photo)
 
 
 def main():
     scheduled_publishing()
+
 
 if __name__ == '__main__':
     main()
