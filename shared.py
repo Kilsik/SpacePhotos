@@ -7,7 +7,6 @@ from urllib import parse
 from dotenv import load_dotenv
 
 
-
 def get_image(url, path):
     Path(path.split('/')[0]).mkdir(exist_ok=True)
     response = requests.get(url)
@@ -34,6 +33,7 @@ def publish_photo(photo):
 
 def main():
     pass
+
 
 if __name__ == '__main__':
     main()
