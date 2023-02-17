@@ -4,7 +4,6 @@ import os
 
 from pathlib import Path
 from urllib import parse
-from dotenv import load_dotenv
 
 
 def get_image(url, path):
@@ -22,10 +21,8 @@ def files_ext(pic_url):
     return ext
 
 
-def publish_photo(photo):
-    bot_token = os.environ["BOT_TOKEN"]
+def publish_photo(bot_token, chat_id, photo):
     space_bot = telegram.Bot(token=bot_token)
-    chat_id = os.environ["CHANEL_ID"]
     with open(photo, 'rb') as image_file:
         space_bot.send_document(chat_id=chat_id, document=image_file)
 
