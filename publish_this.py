@@ -14,8 +14,8 @@ def publish_this():
     if args.file:
         photo = args.file
     else:
-        list_photo = list(os.walk('images'))[0][2]
-        photo = os.path.join('images', random.choice(list_photo))
+        roster_photo = list(os.walk('images'))[0][2]
+        photo = os.path.join('images', random.choice(roster_photo))
     publish_photo(photo)
 
 
