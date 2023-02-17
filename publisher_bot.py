@@ -8,7 +8,7 @@ from shared import publish_photo
 
 
 def scheduled_publishing(bot_token, chat_id, folder, timer):
-    roster_photo = list(os.walk(folder))[0][2]
+    *__, roster_photo = list(os.walk(folder))[0]
     while True:
         for photo in roster_photo:
             publish_photo(bot_token, chat_id, os.path.join(folder, photo))
@@ -18,8 +18,8 @@ def scheduled_publishing(bot_token, chat_id, folder, timer):
 
 def main():
     load_dotenv()
-    chat_id = os.environ["CHANEL_ID"]
-    bot_token = os.environ["BOT_TOKEN"]
+    chat_id = os.environ["TELEGRAM_CHANEL_ID"]
+    bot_token = os.environ["TELEGRAM_BOT_TOKEN"]
     parser = argparse.ArgumentParser(
         description='Publish docs from folders according to the schedule'
         )

@@ -3,7 +3,7 @@ import os
 import argparse
 
 from dotenv import load_dotenv
-from shared import get_image, files_ext
+from shared import get_image, get_files_ext
 
 
 def fetch_nasa_apod(nasa_api_key, folder, count):
@@ -16,7 +16,7 @@ def fetch_nasa_apod(nasa_api_key, folder, count):
     link_roster = nasa_response.json()
     for link_number, link in enumerate(link_roster):
         try:
-            ext = files_ext(link["hdurl"])
+            ext = get_files_ext(link["hdurl"])
         except KeyError:
             continue
         path = f'{folder}/nasa_apod{link_number}{ext}'
