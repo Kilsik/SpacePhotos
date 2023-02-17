@@ -28,8 +28,8 @@ def fetch_nasa_apod():
     nasa_url = 'https://api.nasa.gov/planetary/apod'
     nasa_response = requests.get(nasa_url, params=nasa_params)
     nasa_response.raise_for_status()
-    link_list = nasa_response.json()
-    for link_number, link in enumerate(link_list):
+    link_roster = nasa_response.json()
+    for link_number, link in enumerate(link_roster):
         try:
             ext = files_ext(link["hdurl"])
         except KeyError:
