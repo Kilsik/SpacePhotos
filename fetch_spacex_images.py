@@ -11,8 +11,8 @@ def fetch_spacex_launch(folder, launch_id):
     if not launch_response.json()['links']['flickr']['original']:
         print('There are not images on this launch')
         return
-    link_roster = launch_response.json()['links']['flickr']['original']
-    for link_number, link in enumerate(link_roster):
+    links = launch_response.json()['links']['flickr']['original']
+    for link_number, link in enumerate(links):
         path = f'{folder}/SpaceX{link_number}.jpg'
         get_image(link, path)
     return

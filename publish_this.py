@@ -10,8 +10,9 @@ def publish_this(bot_token, chat_id, file):
     if file:
         photo = file
     else:
-        *__, roster_photo = list(os.walk('images'))[0]
-        photo = os.path.join('images', random.choice(roster_photo))
+        *__, last_photos = list(os.walk('images'))
+        *__, photos = last_photos
+        photo = os.path.join('images', random.choice(photos))
     publish_photo(bot_token, chat_id, photo)
 
 

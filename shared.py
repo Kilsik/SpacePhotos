@@ -1,13 +1,14 @@
 import telegram
 import requests
 import os
+import pathlib
 
-from pathlib import Path
 from urllib import parse
 
 
 def get_image(url, path):
-    Path(path.split('/')[0]).mkdir(exist_ok=True)
+    folder = pathlib.PurePath(path).parent
+    pathlib.Path(folder).mkdir(parents=True, exist_ok=True)
     response = requests.get(url)
     response.raise_for_status()
     with open(path, 'wb') as file:

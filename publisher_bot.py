@@ -7,13 +7,14 @@ from dotenv import load_dotenv
 from shared import publish_photo
 
 
-def scheduled_publishing(bot_token, chat_id, folder, timer):
-    *__, roster_photo = list(os.walk(folder))[0]
+def publish_contet(bot_token, chat_id, folder, timer):
+    *__, last_photos = list(os.walk(folder))
+    *__, photos = last_photos
     while True:
-        for photo in roster_photo:
+        for photo in photos:
             publish_photo(bot_token, chat_id, os.path.join(folder, photo))
             sleep(timer)
-        random.shuffle(roster_photo)
+        random.shuffle(photos)
 
 
 def main():
@@ -33,7 +34,7 @@ def main():
         default=os.environ["TIMER"],
         help='Timer, sec.')
     args = parser.parse_args()
-    scheduled_publishing(bot_token, chat_id, args.photo_folder, args.timer)
+    publish_contet(bot_token, chat_id, args.photo_folder, args.timer)
 
 
 if __name__ == '__main__':

@@ -7,14 +7,15 @@ from shared import get_image, get_files_ext
 
 
 def fetch_nasa_apod(nasa_api_key, folder, count):
-    nasa_params = {"api_key": nasa_api_key,
-                   "count": count
-                   }
+    nasa_params = {
+        "api_key": nasa_api_key,
+        "count": count
+        }
     nasa_url = 'https://api.nasa.gov/planetary/apod'
     nasa_response = requests.get(nasa_url, params=nasa_params)
     nasa_response.raise_for_status()
-    link_roster = nasa_response.json()
-    for link_number, link in enumerate(link_roster):
+    links = nasa_response.json()
+    for link_number, link in enumerate(links):
         try:
             ext = get_files_ext(link["hdurl"])
         except KeyError:
@@ -28,15 +29,17 @@ def main():
     parser = argparse.ArgumentParser(
         description='Downloads NASA photo of day'
         )
-    parser.add_argument('folder',
-                        type=str,
-                        help='Output dir for image'
-                        )
-    parser.add_argument('-count',
-                        type=int,
-                        default=10,
-                        help='Count randomly chosen images (default 10)'
-                        )
+    parser.add_argument(
+        'folder',
+        type=str,
+        help='Output dir for image'
+        )
+    parser.add_argument(
+        '-count',
+        type=int,
+        default=10,
+        help='Count randomly chosen images (default 10)'
+        )
     args = parser.parse_args()
     nasa_key = os.environ["NASA_API_KEY"]
     fetch_nasa_apod(nasa_key, args.folder, args.count)
